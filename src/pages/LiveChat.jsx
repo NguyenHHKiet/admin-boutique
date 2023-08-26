@@ -5,7 +5,7 @@ import io from "socket.io-client";
 import "../assets/Chat.css";
 import useAxios from "../hooks/useAxios";
 
-const socket = io.connect("http://localhost:5000");
+const socket = io.connect("https://server-boutique-tau.vercel.app");
 
 const LiveChat = () => {
     const [username] = useState("ADMIN");

@@ -13,7 +13,7 @@ import LiveChat from "./pages/LiveChat";
 import ProductPage from "./pages/ProductPage";
 import EditProductPage from "./pages/EditProductPage";
 
-axios.defaults.baseURL = "http://localhost:5000/api";
+axios.defaults.baseURL = "https://server-boutique-tau.vercel.app/api";
 // don't use it because upload file in backend undefined
 // axios.defaults.headers["Content-Type"] = "application/json";
 axios.defaults.withCredentials = true;
@@ -47,14 +47,14 @@ const router = createBrowserRouter([
                 loader: () =>
                     import("./API/loader").then((module) => module.tokenCSRF()),
             },
-            {
-                path: "login",
-                element: <Login />,
-                loader: () =>
-                    import("./API/loader").then((module) => module.tokenCSRF()),
-                action: login,
-            },
         ],
+    },
+    {
+        path: "/login",
+        element: <Login />,
+        loader: () =>
+            import("./API/loader").then((module) => module.tokenCSRF()),
+        action: login,
     },
 ]);
 

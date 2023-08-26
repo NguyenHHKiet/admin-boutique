@@ -12,14 +12,22 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useActionData, useSubmit } from "react-router-dom";
+import useAxios from "../hooks/useAxios";
+import { useEffect, useState } from "react";
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
 const defaultTheme = createTheme();
 
 export default function SignIn() {
-    let submit = useSubmit();
+    // let submit = useSubmit();
     const data = useActionData();
+    const { sendRequest } = useAxios();
+    const [token, setToken] = useState("");
+
+    useEffect(() => {
+        sendRequest({ url: "/auth/getCSRFToken" }, setToken);
+    }, [sendRequest]);
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -28,7 +36,19 @@ export default function SignIn() {
             email: data.get("email"),
             password: data.get("password"),
         };
-        submit(formData, { method: "post" });
+        // submit(formData, { method: "post" });
+        sendRequest({
+            url: "/auth/login",
+            method: "post",
+            body: formData,
+            headers: {
+                headers: {
+                    isAdmin: true,
+                    "Content-Type": "application/json",
+                    "csrf-token": token.csrfToken,
+                },
+            },
+        });
     };
 
     const styleValid = {
