@@ -52,8 +52,6 @@ const router = createBrowserRouter([
     {
         path: "/login",
         element: <Login />,
-        loader: () =>
-            import("./API/loader").then((module) => module.tokenCSRF()),
         action: login,
     },
 ]);
