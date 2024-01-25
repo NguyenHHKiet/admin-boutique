@@ -1,8 +1,36 @@
-# React + Vite
+# ADMIN BOUTIQUE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
+Admin website helps manage and track CRUD data from modules, build chat pages using socket.io-client, and report charts.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+
+- ReactJS
+- React-Router-Dom
+- React-Bootstrap
+- Socket.io-client
+- axios
+
+## Quick Start
+Follow these steps to set up the project locally on your machine.
+
+**Prerequisites**
+
+Make sure you have the following installed on your machine:
+
+- Git
+- Node.js
+- npm (Node Package Manager)
+  
+**Installation**
+
+Install the project dependencies using npm:
+```javascript
+yarn
+```
+
+**Running the Project**
+```javascript
+yarn dev
+```
